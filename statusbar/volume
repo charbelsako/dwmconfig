@@ -1,0 +1,17 @@
+#!/bin/bash 
+
+# check if muted
+muted=$(pactl list sinks | grep "Mute" | sed -e "s/[A-Z][a-z][a-z][a-z]: //")
+
+case $BUTTON in
+	1) pactl set-sink-mute 0 toggle
+esac
+
+if [ $muted = "yes" ]
+then
+	printf ""
+	exit
+fi
+
+vol=$(pactl list sinks | grep '^[[:space:]]Volume:' | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
+printf "%s %s%%" "" "$vol"

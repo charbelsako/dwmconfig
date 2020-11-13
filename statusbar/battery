@@ -1,0 +1,30 @@
+#! /bin/bash
+
+
+percentage=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "percentage" | sed -e "s/[a-z]\+:[[:space:]]//;s/[[:space:]]//g")
+
+charging=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "state" | sed "s/[a-z][a-z][a-z][a-z][a-z]:[[:space:]]//;s/[[:space:]]//g")
+
+if [ $charging = "charging" ]
+then
+	printf " "
+fi
+
+if [ $percentage -gt 75 ]
+then
+	printf ""
+elif [ $percentage -gt 50 ]
+then
+	printf ""
+elif [ $percentage -gt 25 ]
+then
+	printf ""
+elif [ $percentage -gt 0 ]
+then
+	printf ""
+else 
+	printf ""
+fi	
+
+printf " "
+printf "%s" "$percentage"
