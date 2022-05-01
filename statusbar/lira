@@ -1,0 +1,40 @@
+#! /bin/bash
+lirarate="$HOME/.local/share/lirarate"
+getlirarate() { curl -sf "https://lbprate.com/" > "$lirarate" || exit 1; }
+
+showrate() { printf "%s (%s%.2f%%)" "$buy" "$icon" "$percentage"; }
+
+lirahistory="$HOME/.local/share/lirahistory"
+printtolog() { echo "$buy" >> $lirahistory || exit 1;  }
+
+case $BUTTON in
+	#1) notify-send "what" ;;
+	2) notify-send "💲Updating..." && getlirarate && showrate && notify-send "💲Updated Rate" ;;
+	3) notify-send "Lira Exchange Rate: 💲" "\Shows percentage change since yesterday" ;;
+esac
+
+
+buy=$(cat $lirarate | grep "1 USD" | sed 's/\([^0-9]\)//g' | sed -e 's/^\(.\{1\}\)//g' | head -n 1)
+
+# only log to file every day.
+[ "$(stat -c %y "$lirahistory" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] || (getlirarate && printtolog)
+	
+line_count=$(wc -l $lirahistory | sed -e "s/[^0-9]//g")
+if [ $line_count -gt 1 ]
+then
+	buy_y=$(cat $lirahistory | tail -2 | head -1)
+else
+	buy_y=$buy
+fi
+
+# this is meant to be the difference between each day
+percentage=$(echo "scale=4 ; (($buy - $buy_y) / $buy_y) * 100" | bc)
+icon="📉"
+percent_int=$(echo " $percentage > 0 " | bc)
+if [ $percent_int -eq 1 ] 
+then
+	icon="📈"
+fi
+
+showrate
+
