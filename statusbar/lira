@@ -5,11 +5,21 @@ getlirarate() { curl -sf "https://lbprate.com/" > "$lirarate" || exit 1; }
 showrate() { printf "%s (%s%.2f%%)" "$buy" "$icon" "$percentage"; }
 
 lirahistory="$HOME/.local/share/lirahistory"
-printtolog() { echo "$buy" >> $lirahistory || exit 1;  }
+shouldprinttolog() { 
+	if [ "$(stat -c %y "$lirahistory" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ]
+	then
+		return 0
+	fi
+	return 1
+}
+printtolog() {
+       	shouldprint=$(shouldprinttolog)	
+	[ $? -eq 0 ] || $(echo "$buy" >> $lirahistory) || exit 1;  
+}
 
 case $BUTTON in
 	#1) notify-send "what" ;;
-	2) notify-send "💲Updating..." && getlirarate && showrate && notify-send "💲Updated Rate" ;;
+	2) notify-send "💲Updating..." && getlirarate && showrate && printtolog && notify-send "💲Updated Rate" ;;
 	3) notify-send "Lira Exchange Rate: 💲" "\Shows percentage change since yesterday" ;;
 esac
 
@@ -17,7 +27,8 @@ esac
 buy=$(cat $lirarate | grep "1 USD" | sed 's/\([^0-9]\)//g' | sed -e 's/^\(.\{1\}\)//g' | head -n 1)
 
 # only log to file every day.
-[ "$(stat -c %y "$lirahistory" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] || (getlirarate && printtolog)
+#[ "$(stat -c %y "$lirahistory" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] || (getlirarate && showrate && printtolog)
+printtolog
 	
 line_count=$(wc -l $lirahistory | sed -e "s/[^0-9]//g")
 if [ $line_count -gt 1 ]
@@ -28,7 +39,7 @@ else
 fi
 
 # this is meant to be the difference between each day
-percentage=$(echo "scale=4 ; (($buy - $buy_y) / $buy_y) * 100" | bc)
+percentage=$(echo "scale=6 ; (($buy - $buy_y) / $buy_y) * 100" | bc)
 icon="📉"
 percent_int=$(echo " $percentage > 0 " | bc)
 if [ $percent_int -eq 1 ] 
