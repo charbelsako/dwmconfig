@@ -27,7 +27,6 @@ esac
 buy=$(cat $lirarate | grep "1 USD" | sed 's/\([^0-9]\)//g' | sed -e 's/^\(.\{1\}\)//g' | head -n 1)
 
 # only log to file every day.
-#[ "$(stat -c %y "$lirahistory" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] || (getlirarate && showrate && printtolog)
 printtolog
 	
 line_count=$(wc -l $lirahistory | sed -e "s/[^0-9]//g")
@@ -46,6 +45,6 @@ if [ $percent_int -eq 1 ]
 then
 	icon="📈"
 fi
-
+[ "$(stat -c %y "$lirarate" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] || (getlirarate && showrate)
 showrate
 
