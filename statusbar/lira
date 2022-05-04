@@ -1,8 +1,11 @@
 #! /bin/bash
 lirarate="$HOME/.local/share/lirarate"
+datehistory="$HOME/.local/share/history"
 getlirarate() { curl -sf "https://lbprate.com/" > "$lirarate" || exit 1; }
 
 showrate() { printf "%s (%s%.2f%%)" "$buy" "$icon" "$percentage"; }
+
+[ "$(stat -c %y "$lirarate" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] || (getlirarate && showrate)
 
 lirahistory="$HOME/.local/share/lirahistory"
 shouldprinttolog() { 
@@ -13,8 +16,15 @@ shouldprinttolog() {
 	return 1
 }
 printtolog() {
-       	shouldprint=$(shouldprinttolog)	
-	[ $? -eq 0 ] || $(echo "$buy" >> $lirahistory) || exit 1;  
+	result=$(find "$HOME/.local/share/" -empty -name "lirahistory" | wc -l)
+	if [ $result -eq 1 ]
+	then
+		echo "$buy" >> $lirahistory; 
+		echo $(date -u "+%Y-%m-%d %H:%M:%S") >> $datehistory;
+		return 0;
+	fi
+       	shouldprinttolog	
+	[ $? -eq 0 ] || echo "$buy" >> $lirahistory || $(echo $(date -u "+%Y-%m-%d %H:%M:%S") >> $datehistory) || return 1;  
 }
 
 case $BUTTON in
@@ -28,15 +38,18 @@ buy=$(cat $lirarate | grep "1 USD" | sed 's/\([^0-9]\)//g' | sed -e 's/^\(.\{1\}
 
 # only log to file every day.
 printtolog
+
 	
 line_count=$(wc -l $lirahistory | sed -e "s/[^0-9]//g")
 if [ $line_count -gt 1 ]
 then
 	buy_y=$(cat $lirahistory | tail -2 | head -1)
 else
+
 	buy_y=$buy
 fi
-
+#echo $buy
+#echo $buy_y
 # this is meant to be the difference between each day
 percentage=$(echo "scale=6 ; (($buy - $buy_y) / $buy_y) * 100" | bc)
 icon="📉"
@@ -45,6 +58,6 @@ if [ $percent_int -eq 1 ]
 then
 	icon="📈"
 fi
-[ "$(stat -c %y "$lirarate" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] || (getlirarate && showrate)
+
 showrate
 
