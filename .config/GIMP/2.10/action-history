@@ -1,0 +1,11 @@
+# GIMP action-history
+
+(history-item "file-open" 1)
+(history-item "file-quit" 1)
+(history-item "file-export-as" 1)
+(history-item "file-save-as" 0)
+(history-item "tools-dodge-burn" 0)
+(history-item "tools-zoom" 0)
+(history-item "select-invert" 1)
+
+# end of action-history

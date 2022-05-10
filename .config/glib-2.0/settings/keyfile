@@ -1,0 +1,47 @@
+[org/gnome/font-manager]
+selected-category='0'
+selected-font='5'
+preview-page=1
+charmap-font-size=48.25017972681524
+compare-background-color='rgb(255,255,255)'
+compare-foreground-color='rgb(0,0,0)'
+compare-list=[]
+google-fonts-background-color='rgb(255,255,255)'
+google-fonts-foreground-color='rgb(0,0,0)'
+is-maximized=false
+language-filter-list=[]
+window-position=(15, 35)
+window-size=(1888, 982)
+
+content-pane-position=393
+sidebar-size=279
+
+preview-text="    The quick brown fox jumps over the lazy dog.\n\n    ABCDEFGHIJKLMNOPQRSTUVWXYZ\n    abcdefghijklmnopqrstuvwxyz\n    1234567890.:,;(*!?')\n\n    "
+preview-mode='preview'
+
+mode='Manage'
+browse-preview-text=''
+
+[org/gnome/font-manager/font-viewer]
+preview-page=0
+window-position=(15, 35)
+window-size=(1039, 982)
+
+[org/gtk/settings/file-chooser]
+window-position=(392, 139)
+window-size=(1136, 822)
+date-format='regular'
+location-mode='path-bar'
+show-hidden=true
+show-size-column=true
+show-type-column=true
+sidebar-width=156
+sort-column='name'
+sort-directories-first=false
+sort-order='ascending'
+type-format='category'
+
+[org/gnome/dictionary]
+source-name='Default'
+strategy='exact'
+database='!'

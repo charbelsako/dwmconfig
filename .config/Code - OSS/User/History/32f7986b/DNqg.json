@@ -1,0 +1,7 @@
+{
+    // "editor.fontFamily": "Noto Color Emoji",
+    "editor.fontFamily": "Noto Color Emoji",
+    "editor.fontLigatures": true,
+    "emojisense.showOnColon" : true	,
+    "editor.quickSuggestions.comments": true
+}

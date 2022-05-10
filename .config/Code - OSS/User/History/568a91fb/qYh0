@@ -1,0 +1,23 @@
+#!/bin/bash 
+
+sinks=$(pactl list sinks | grep "Mute" | wc -l)
+if [ $sinks -gt 1 ]
+then
+	num="2p"
+else
+	num="1p"	
+fi
+# check if muted
+muted=$(pactl list sinks | grep "Mute" | sed -n $num | sed -e "s/[A-Z][a-z][a-z][a-z]: //")
+case $BUTTON in
+	1) pactl set-sink-mute 1 toggle ;;
+	3) st ;; 
+esac
+if [ $muted = "yes" ]
+then
+	printf "🔈"
+	exit
+fi
+
+vol=$(pactl list sinks | grep '^[[:space:]]Volume:' | sed -n $num | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
+printf "%s %s%%" "🔊" "$vol"

@@ -1,0 +1,10 @@
+[2022-04-29 16:49:41.610] [exthost] [info] Extension host with pid 22828 started
+[2022-04-29 16:49:41.610] [exthost] [info] Skipping acquiring lock for /home/sako/.config/Code - OSS/User/workspaceStorage/d33753fcbcbf5acfbb41c0ade22622de.
+[2022-04-29 16:49:41.719] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: true, activationEvent: '*'
+[2022-04-29 16:49:41.723] [exthost] [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+[2022-04-29 16:49:41.726] [exthost] [info] ExtensionService#_doActivateExtension vscode.ipynb, startup: true, activationEvent: '*'
+[2022-04-29 16:49:41.861] [exthost] [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+[2022-04-29 16:49:41.912] [exthost] [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+[2022-04-29 16:49:42.020] [exthost] [info] Eager extensions activated
+[2022-04-29 16:49:42.066] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+[2022-04-29 16:49:42.080] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'

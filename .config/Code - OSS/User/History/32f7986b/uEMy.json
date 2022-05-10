@@ -1,0 +1,5 @@
+{
+    // "editor.fontFamily": "Noto Color Emoji",
+    "editor.fontFamily": "FiraCode",
+    "editor.fontLigatures": true
+}

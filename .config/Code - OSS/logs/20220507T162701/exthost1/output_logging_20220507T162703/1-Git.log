@@ -1,0 +1,11 @@
+[2022-05-07T16:27:04.436Z] Validating found git in: git
+[2022-05-07T16:27:04.446Z] Using git 2.36.0 from git
+[2022-05-07T16:27:04.459Z] > git rev-parse --git-dir [1ms]
+[2022-05-07T16:27:04.463Z] Open repository: /home/sako/Code/dwm
+[2022-05-07T16:27:04.477Z] > git symbolic-ref --short HEAD [1ms]
+[2022-05-07T16:27:04.506Z] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/systray-update refs/remotes/systray-update [27ms]
+[2022-05-07T16:27:04.527Z] > git remote --verbose [14ms]
+[2022-05-07T16:27:04.527Z] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [18ms]
+[2022-05-07T16:27:04.532Z] > git config --get commit.template [1ms]
+[2022-05-07T16:27:04.812Z] > git ls-files --stage -- /home/sako/Code/dwm/config.h [5ms]
+[2022-05-07T16:27:04.824Z] > git cat-file -s 8b68226d817c23396d610aa8fc1d634f6a132ba5 [3ms]

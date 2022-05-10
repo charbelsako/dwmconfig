@@ -1,0 +1,11 @@
+[2022-04-28T22:08:59.427Z] Validating found git in: git
+[2022-04-28T22:08:59.437Z] Using git 2.36.0 from git
+[2022-04-28T22:19:49.807Z] > git rev-parse --git-dir [2ms]
+[2022-04-28T22:19:49.814Z] Open repository: /home/sako/Code/dwmblocks
+[2022-04-28T22:19:49.827Z] > git symbolic-ref --short HEAD [1ms]
+[2022-04-28T22:19:49.831Z] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master [1ms]
+[2022-04-28T22:19:49.839Z] > git remote --verbose [2ms]
+[2022-04-28T22:19:49.839Z] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [5ms]
+[2022-04-28T22:19:49.847Z] > git config --get commit.template [0ms]
+[2022-04-28T22:19:50.256Z] > git ls-files --stage -- /home/sako/Code/dwmblocks/blocks.h [1ms]
+[2022-04-28T22:19:50.259Z] > git cat-file -s ae40850efbea66ef6088f6a8e18feb2f317bb0ed [1ms]

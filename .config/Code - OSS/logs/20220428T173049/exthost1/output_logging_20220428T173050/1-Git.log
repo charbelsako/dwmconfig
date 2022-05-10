@@ -1,0 +1,21 @@
+[2022-04-28T14:30:51.150Z] Validating found git in: git
+[2022-04-28T14:30:51.162Z] Using git 2.35.3 from git
+[2022-04-28T14:30:51.175Z] > git rev-parse --git-dir [0ms]
+[2022-04-28T14:30:51.180Z] Open repository: /home/sako/Code/dwm
+[2022-04-28T14:30:51.192Z] > git symbolic-ref --short HEAD [1ms]
+[2022-04-28T14:30:51.195Z] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/systray-update refs/remotes/systray-update [1ms]
+[2022-04-28T14:30:51.201Z] > git remote --verbose [1ms]
+[2022-04-28T14:30:51.201Z] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [3ms]
+[2022-04-28T14:30:51.207Z] > git config --get commit.template [1ms]
+[2022-04-28T14:30:51.507Z] > git ls-files --stage -- /home/sako/Code/dwm/dwm.c [2ms]
+[2022-04-28T14:30:51.510Z] > git cat-file -s 78d9e50de06a9ce12d625ceacb901ef4d899ba08 [1ms]
+[2022-04-28T14:31:21.163Z] > git symbolic-ref --short HEAD [1ms]
+[2022-04-28T14:31:21.166Z] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/systray-update refs/remotes/systray-update [1ms]
+[2022-04-28T14:31:21.171Z] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [3ms]
+[2022-04-28T14:31:21.171Z] > git remote --verbose [1ms]
+[2022-04-28T14:31:21.175Z] > git config --get commit.template [0ms]
+[2022-04-28T14:31:26.186Z] > git symbolic-ref --short HEAD [1ms]
+[2022-04-28T14:31:26.192Z] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/systray-update refs/remotes/systray-update [2ms]
+[2022-04-28T14:31:26.203Z] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [6ms]
+[2022-04-28T14:31:26.204Z] > git remote --verbose [2ms]
+[2022-04-28T14:31:26.214Z] > git config --get commit.template [1ms]
