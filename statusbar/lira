@@ -57,11 +57,5 @@ esac
 # could also check by this condition
 #tail -1 .local/share/history | cut -d' ' -f1
 [ "$(stat -c %y "$lirarate" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] && showrate || (getlirarate && printtolog && showrate)
-
-
-
-
 # only log to file every day.
-
 # this is meant to be the difference between each day
-

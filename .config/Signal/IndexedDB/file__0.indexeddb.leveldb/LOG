@@ -1,7 +1,0 @@
-2022/05/01-20:39:07.823 7d47 Reusing MANIFEST /home/sako/.config/Signal/IndexedDB/file__0.indexeddb.leveldb/MANIFEST-000001
-2022/05/01-20:39:07.823 7d47 Recovering log #4
-2022/05/01-20:39:07.824 7d47 Reusing old log /home/sako/.config/Signal/IndexedDB/file__0.indexeddb.leveldb/000004.log 
-2022/05/01-20:39:07.961 7d37 Level-0 table #8: started
-2022/05/01-20:39:07.964 7d37 Level-0 table #8: 472 bytes OK
-2022/05/01-20:39:07.968 7d37 Delete type=0 #4
-2022/05/01-20:39:07.968 7d37 Manual compaction at level-0 from '\x00\x02\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x03\x00\x00\x00' @ 0 : 0; will stop at (end)
