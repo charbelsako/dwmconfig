@@ -1,57 +1,15 @@
 #! /bin/bash
 lirarate="$HOME/.local/share/lirarate"
-datehistory="$HOME/.local/share/history"
-lirahistory="$HOME/.local/share/lirahistory"
 getlirarate() { curl -sf "https://lbprate.com/" > "$lirarate" || exit 1; }
 buy=0
-buy_y=0
 showrate() { 
-	buy=$(cat $lirarate | grep "1 USD" | sed 's/\([^0-9]\)//g' | sed -e 's/^\(.\{1\}\)//g' | head -n 1)
-
-	line_count=$(wc -l $lirahistory | sed -e "s/[^0-9]//g")
-	if [ $line_count -gt 1 ]
-	then
-		buy_y=$(cat $lirahistory | tail -2 | head -1)
-	else
-
-		buy_y=$buy
-	fi
-
-	percentage=$(echo "scale=6 ; (($buy - $buy_y) / $buy_y) * 100" | bc)
-	icon="📉"
-	percent_int=$(echo " $percentage > 0 " | bc)
-	if [ $percent_int -eq 1 ] 
-	then
-		icon="📈"
-	fi
-
-	printf "%s (%s%.2f%%)" "$buy" "$icon" "$percentage"; 
-}
-
-shouldprinttolog() { 
-	if [ "$(stat -c %y "$lirahistory" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ]
-	then
-		return 0
-	fi
-	return 1
-}
-
-printtolog() {
-	result=$(find "$HOME/.local/share/" -empty -name "lirahistory" | wc -l)
-	if [ $result -eq 1 ]
-	then
-		echo "$buy" >> $lirahistory; 
-		echo $(date -u "+%Y-%m-%d %H:%M:%S") >> $datehistory;
-		return 0;
-	fi
-	shouldI=$(shouldprinttolog)	
-	[ $? -eq 0 ] || echo "$buy" >> $lirahistory || $(echo $(date -u "+%Y-%m-%d %H:%M:%S") >> $datehistory) || return 1;  
+	printf "%s" "$buy"; 
 }
 
 case $BUTTON in
 	#1) notify-send "what" ;;
-	2) notify-send "💲Updating..." && getlirarate && showrate && printtolog && notify-send "💲Updated Rate" ;;
-	3) notify-send "Lira Exchange Rate: 💲" "\Shows percentage change since yesterday" ;;
+	2) notify-send "💲Updating..." && getlirarate && showrate && notify-send "💲Updated Rate" ;;
+	3) notify-send "Lira Exchange Rate: 💲" ;;
 esac
 # check if haven't gotten the lira rate today. If so get it and then show it.
 # could also check by this condition
