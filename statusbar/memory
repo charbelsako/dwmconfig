@@ -1,0 +1,10 @@
+#! /bin/bash 
+
+mem="$(free --si -h | awk '/^Mem:/ {print $3 "/" $2}')"
+echo -e "$mem RAM "
+
+case $BUTTON in
+  1) st -e htop;;
+esac
+
+

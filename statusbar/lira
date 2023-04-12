@@ -3,6 +3,8 @@ lirarate="$HOME/.local/share/lirarate"
 getlirarate() { curl -sf "https://lbprate.com/" > "$lirarate" || exit 1; }
 buy=0
 showrate() { 
+	buy=$(cat $lirarate | grep "1 USD" | sed 's/\([^0-9]\)//g' | sed -e 's/^\(.\{1\}\)//g' | head -n 1)
+
 	printf "%s" "$buy"; 
 }
 
@@ -11,9 +13,6 @@ case $BUTTON in
 	2) notify-send "💲Updating..." && getlirarate && showrate && notify-send "💲Updated Rate" ;;
 	3) notify-send "Lira Exchange Rate: 💲" ;;
 esac
-# check if haven't gotten the lira rate today. If so get it and then show it.
-# could also check by this condition
-#tail -1 .local/share/history | cut -d' ' -f1
-[ "$(stat -c %y "$lirarate" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] && showrate || (getlirarate && printtolog && showrate)
-# only log to file every day.
-# this is meant to be the difference between each day
+
+showrate 
+

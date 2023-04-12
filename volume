@@ -1,0 +1,14 @@
+#!/bin/bash 
+
+# only checks the first sink should be checking all of them
+# check if muted
+muted=$(pactl list sinks | grep "Mute" | sed -e "s/[A-Z][a-z][a-z][a-z]: //" | head -1)
+
+if [ $muted = "yes" ]
+then
+	printf "🔇"
+	exit
+fi
+
+vol=$(pactl list sinks | grep '^[[:space:]]Volume:' | head -1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
+printf "%s %s%%" "🔊"  "$vol"
