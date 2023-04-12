@@ -1,3 +1,0 @@
-#! /bin/bash
-
-echo 🗓  $(date -u "+%a %b %d")  $(date -u "+%I:%M%p")

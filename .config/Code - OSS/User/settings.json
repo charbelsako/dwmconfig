@@ -1,8 +1,0 @@
-{
-    // "editor.fontFamily": "Noto Color Emoji",
-    "editor.fontFamily": "Fira Code ",
-    "editor.fontLigatures": true,
-    "emojisense.showOnColon" : true	,
-    "editor.quickSuggestions.comments": true,
-    "terminal.external.linuxExec": "st"
-}

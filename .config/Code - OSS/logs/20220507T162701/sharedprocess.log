@@ -1,8 +1,0 @@
-[2022-05-07 16:27:03.662] [sharedprocess] [info] Starting worker process with pid 5595 (type: fileWatcher, window: 1).
-[2022-05-07 16:27:11.325] [sharedprocess] [info] Getting Manifest... ms-vscode.js-debug-companion
-[2022-05-07 16:27:11.976] [sharedprocess] [info] Installing extension: ms-vscode.js-debug-companion
-[2022-05-07 16:27:13.235] [sharedprocess] [info] Downloaded extension: ms-vscode.js-debug-companion /home/sako/.config/Code - OSS/CachedExtensionVSIXs/ms-vscode.js-debug-companion-1.0.18
-[2022-05-07 16:27:13.283] [sharedprocess] [info] Extracted extension to /home/sako/.vscode-oss/extensions/.f557b26a-8a4b-42a3-b2f4-999054237e28: ms-vscode.js-debug-companion
-[2022-05-07 16:27:13.290] [sharedprocess] [info] Renamed to /home/sako/.vscode-oss/extensions/ms-vscode.js-debug-companion-1.0.18
-[2022-05-07 16:27:13.292] [sharedprocess] [info] Extracting completed. ms-vscode.js-debug-companion
-[2022-05-07 16:27:13.296] [sharedprocess] [info] Extension installed successfully: ms-vscode.js-debug-companion

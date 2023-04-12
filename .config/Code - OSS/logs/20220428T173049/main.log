@@ -1,6 +1,0 @@
-[2022-04-28 17:30:49.081] [main] [info] window#load: attempt to load window (id: 1)
-[2022-04-28 17:30:49.087] [main] [info] update#ctor - updates are disabled as there is no update URL
-[2022-04-28 17:30:49.108] [main] [info] ExtensionHostStarterWorker created
-[2022-04-28 17:30:50.158] [main] [info] window#load: window reported ready (id: 1)
-[2022-04-28 17:30:50.326] [main] [info] Starting extension host with pid 8060 (fork() took 7 ms).
-[2022-04-28 17:30:50.326] [main] [info] ExtensionHostStarterWorker.start() took 8 ms.

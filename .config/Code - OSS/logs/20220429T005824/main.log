@@ -1,8 +1,0 @@
-[2022-04-29 00:58:24.983] [main] [info] window#load: attempt to load window (id: 1)
-[2022-04-29 00:58:24.994] [main] [info] update#ctor - updates are disabled as there is no update URL
-[2022-04-29 00:58:25.023] [main] [info] ExtensionHostStarterWorker created
-[2022-04-29 00:58:26.178] [main] [info] window#load: window reported ready (id: 1)
-[2022-04-29 00:58:26.351] [main] [info] Starting extension host with pid 10741 (fork() took 5 ms).
-[2022-04-29 00:58:26.351] [main] [info] ExtensionHostStarterWorker.start() took 7 ms.
-[2022-04-29 01:05:13.631] [main] [info] Waiting for extension host with pid 10741 to exit.
-[2022-04-29 01:05:13.641] [main] [info] Extension host with pid 10741 exited with code: 0, signal: null.
